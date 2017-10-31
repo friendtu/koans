@@ -16,7 +16,7 @@ class DiceSet
     @pre_values.replace @values
     while @pre_values==@values
       @values=Array.new(size) do |i|
-        Random::DEFAULT.rand(7)
+        Random::DEFAULT.rand(6)+1
       end
     end
   end
