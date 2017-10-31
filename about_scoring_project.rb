@@ -31,6 +31,32 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  total=0
+  if(dice.empty?) 
+    return total
+  end
+
+  list=[]
+  (0..9).each do |n|
+    list[n]=dice.count(n)
+  end
+
+  #three group
+  list.each_index do |i|
+    if(list[i]>=3)
+      if(i==1) 
+        total+=1000
+      else
+        total+=i*100
+      end
+      list[i]-=3
+    end
+  end
+
+  total+=list[5]*50
+  total+=list[1]*100
+
+  return total
 end
 
 class AboutScoringProject < Neo::Koan
